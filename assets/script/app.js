@@ -7,7 +7,7 @@ import Shape from './Shape.js';
 
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-/*  Selectors                                            */
+/*  Selectors, Declarations                              */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 const shapeSelection = utils.select('.shape-select')
 const colorSelection = utils.select('.color-select')
@@ -15,12 +15,17 @@ const createButton = utils.select('.selection-container input')
 const gridContainer = utils.select('.grid-container');
 const message = utils.select('.message p');
 
+let shapeCount = 0;
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Create Shape                                         */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
-
 function createShape(shape, color) {
+  if (shapeCount >= 24) {
+    createButton.disabled = true;
+    message.innerHTML = 'The maximum number of shapes have been added';
+    return;
+  }
+
   const shapeDiv = document.createElement('div');
   shapeDiv.classList.add('shape');
   shapeDiv.style.backgroundColor = color;
@@ -34,6 +39,7 @@ function createShape(shape, color) {
   }
 
   gridContainer.appendChild(shapeDiv);
+  shapeCount++;
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
@@ -42,7 +48,5 @@ function createShape(shape, color) {
 utils.listen('click', createButton, () => {
   const selectedShape = shapeSelection.value;
   const selectedColor = colorSelection.value;
-  console.log(selectedColor);
-  console.log(selectedShape);
   createShape(selectedShape, selectedColor);
 });
