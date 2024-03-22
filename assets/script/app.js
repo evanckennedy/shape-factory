@@ -15,11 +15,15 @@ const createButton = utils.select('.selection-container input')
 const gridContainer = utils.select('.grid-container');
 const message = utils.select('.message p');
 
+const shapesArray = [];
 let shapeCount = 0;
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Create Shape                                         */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function createShape(shape, color) {
+  const newShape = new Shape (shape, color);
+  shapesArray.push(newShape);
+
   if (shapeCount >= 24) {
     createButton.disabled = true;
     message.innerHTML = 'The maximum number of shapes have been added';
