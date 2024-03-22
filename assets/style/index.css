@@ -1,0 +1,123 @@
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  Utility Classes                                      */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+.flex {
+  display: flex;
+}
+
+.center {
+  display: grid;
+  place-items: center;
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+
+.gap-2 {
+  gap: 2rem;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  Base                                                 */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+:root {
+  --app-background-dark: rgb(24, 23, 32);
+  --secondary-backround: #272a31;
+  --blue: #09f;
+  --green: #9f0;
+  --orange: #f90;
+  --pink: #f09;
+  --purple: #90f;
+  --border-radius-5: 5px;
+}
+
+body {
+  background-color: var(--app-background-dark);
+  font-family: 'Noto Sans', 'Open Sans', arial, sans-serif;
+  min-height: 100svh;
+}
+
+.container {
+  width: min(100% - 30px, 700px);
+  margin-inline: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p, input, h1 {
+  color: #fff;
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  Component                                            */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+h1 {
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.selection-container {
+  display: flex;
+  width: 550px; /* Set the width of the container */
+  gap: 10px;
+}
+
+select, input, .grid-container {
+  border-radius: var(--border-radius-5);
+}
+
+select {
+  background-color: #272a31; /* has to be hard-coded for option to inherit */
+  color: #fff;
+  padding: 0 10px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 40px;
+  flex: 2;
+}
+
+input {
+  color: #fff;
+  font-weight: 600;
+  background-color: #ffa500;
+  height: 40px;
+  flex: 1;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  padding: 10px;
+  gap: 10px;
+  width: 550px;
+  height: 380px;
+  background-color: var(--secondary-backround);
+}
+
+.shape {
+  background-color: #fff;
+  height: 80px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.message p {
+  text-align: center;
+}
+
+
+
