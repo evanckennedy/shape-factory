@@ -22,8 +22,8 @@ let shapeCount = 0;
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 function createShape(shape, color) {
   if (shapeCount >= 24) {
-    createButton.disabled = true;
-    message.innerHTML = 'The maximum number of shapes have been added';
+    restartGame();
+    message.innerHTML = `'Limit reached! Click on 'Reset' button to play again!`;
     return;
   }
 
@@ -58,6 +58,20 @@ function attachListener (ele, unitNumber, obj) {
     message.innerHTML = 
       `Unit ${unitNumber}: ${obj.getInfo()}`;
   });
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  Restart Game                                         */
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+function createRestartButton() {
+  createButton.value = 'Reset';
+  createButton.classList.add('restart-button');
+  createButton.removeEventListener('click', createShape);
+  utils.listen('click', createButton, () => location.reload());
+}
+
+function restartGame() {
+  createRestartButton();
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */

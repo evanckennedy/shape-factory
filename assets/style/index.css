@@ -90,6 +90,10 @@ input {
   flex: 1;
 }
 
+.restart-button {
+  background-color: #007bff;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
