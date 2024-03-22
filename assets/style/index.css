@@ -25,11 +25,6 @@
 :root {
   --app-background-dark: rgb(24, 23, 32);
   --secondary-backround: #272a31;
-  --blue: #09f;
-  --green: #9f0;
-  --orange: #f90;
-  --pink: #f09;
-  --purple: #90f;
   --border-radius-5: 5px;
 }
 
