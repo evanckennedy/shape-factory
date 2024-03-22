@@ -20,11 +20,6 @@ let shapeCount = 0;
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Create Shape                                         */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-/* function createShapeObject(shape, color) {
-  
-  
-}; */
-
 function createShape(shape, color) {
   if (shapeCount >= 24) {
     createButton.disabled = true;
@@ -37,8 +32,6 @@ function createShape(shape, color) {
   const colorName = colorSelection.options[colorSelection.selectedIndex].text;
   const newShapeObj = new Shape(shape, colorName);
   shapesArray.push(newShapeObj);
-  console.log(newShapeObj);
-  console.log(shapesArray);
 
   const newShapeDiv = document.createElement('div');
   newShapeDiv.classList.add('shape');
@@ -56,7 +49,6 @@ function createShape(shape, color) {
   shapeCount++;
 
   let currentUnit = shapeCount;
-  console.log(currentUnit);
 
   attachListener(newShapeDiv, currentUnit, newShapeObj);
 }
