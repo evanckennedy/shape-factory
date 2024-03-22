@@ -1,22 +1,22 @@
 class Shape {
-  _name;
-  _color;
+  #name;
+  #color;
   
   constructor(name, color) {
-    this._name = name;
-    this._color = color;
+    this.#name = name;
+    this.#color = color;
   }
 
   get name() {
-    return this._name;
+    return this.#name;
   }
 
   get color() {
-    return this._color;
+    return this.#color;
   }
 
   getInfo() {
-    return `${this._color} ${this._name}`;
+    return `${this.#color} ${this.#name}`;
   }
 }
 
