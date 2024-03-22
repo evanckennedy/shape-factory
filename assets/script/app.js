@@ -31,7 +31,7 @@ function createShape(shape, color) {
     message.innerHTML = 'Please select a shape and a color.';
     return false;
   }
-  // Create shape object
+
   // Gets the text content of the of currently selected color in the dropdown
   const colorName = colorSelection.options[colorSelection.selectedIndex].text;
   const newShapeObj = new Shape(shape, colorName);
