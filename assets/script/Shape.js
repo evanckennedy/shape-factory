@@ -1,4 +1,7 @@
 class Shape {
+  _name;
+  _color;
+  
   constructor(name, color) {
     this._name = name;
     this._color = color;

@@ -20,30 +20,52 @@ let shapeCount = 0;
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*  Create Shape                                         */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-function createShape(shape, color) {
-  const newShape = new Shape (shape, color);
-  shapesArray.push(newShape);
+/* function createShapeObject(shape, color) {
+  
+  
+}; */
 
+function createShape(shape, color) {
   if (shapeCount >= 24) {
     createButton.disabled = true;
     message.innerHTML = 'The maximum number of shapes have been added';
     return;
   }
 
-  const shapeDiv = document.createElement('div');
-  shapeDiv.classList.add('shape');
-  shapeDiv.style.backgroundColor = color;
+  // Create shape object
+  // Gets the text content of the of currently selected color in the dropdown
+  const colorName = colorSelection.options[colorSelection.selectedIndex].text;
+  const newShapeObj = new Shape(shape, colorName);
+  shapesArray.push(newShapeObj);
+  console.log(newShapeObj);
+  console.log(shapesArray);
+
+  const newShapeDiv = document.createElement('div');
+  newShapeDiv.classList.add('shape');
+  newShapeDiv.style.backgroundColor = color;
 
   if (shape === 'square') {
-    shapeDiv.classList.add('square');
+    newShapeDiv.classList.add('square');
   }
 
   if (shape === 'circle') {
-    shapeDiv.classList.add('circle');
+    newShapeDiv.classList.add('circle');
   }
 
-  gridContainer.appendChild(shapeDiv);
+  gridContainer.appendChild(newShapeDiv);
   shapeCount++;
+
+  let currentUnit = shapeCount;
+  console.log(currentUnit);
+
+  attachListener(newShapeDiv, currentUnit, newShapeObj);
+}
+
+function attachListener (ele, unitNumber, obj) {
+  utils.listen('click', ele, () => {
+    message.innerHTML = 
+      `Unit ${unitNumber}: ${obj.getInfo()}`;
+  });
 }
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - */
