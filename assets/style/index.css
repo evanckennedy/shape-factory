@@ -99,6 +99,7 @@ input {
   width: 550px;
   height: 380px;
   background-color: var(--secondary-backround);
+  transform: scaleY(-1); /* Flip vertically */
 }
 
 .shape {
