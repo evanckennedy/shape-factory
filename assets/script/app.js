@@ -23,7 +23,7 @@ let shapeCount = 0;
 function createShape(shape, color) {
   if (shapeCount >= 24) {
     restartGame();
-    message.innerHTML = `'Limit reached! Click on 'Reset' button to play again!`;
+    message.innerHTML = `Limit reached! Click on 'Reset' button to play again!`;
     return;
   }
 
