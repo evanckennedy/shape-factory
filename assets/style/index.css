@@ -71,12 +71,10 @@ select, input, .grid-container {
 }
 
 select {
-  background-color: #272a31; /* has to be hard-coded for option to inherit */
+  /* color can't have transparency if you want option to inherit */
+  background-color: var(--secondary-backround); 
   color: #fff;
   padding: 0 10px;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   height: 40px;
   flex: 2;
 }
